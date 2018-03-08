@@ -10,3 +10,4 @@
 5. idea    [IdeaServer](http://ideaserver.suroot.win)
 6. kms     [KMSServer](http://kms.suroot.win)
 7. resume  [Resume](http://resume.suroot.win)
+8. book    [Book](http://book.suroot.win)
