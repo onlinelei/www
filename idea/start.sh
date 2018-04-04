@@ -1,1 +1,2 @@
-nohup ./IntelliJIDEALicenseServer_linux_386 >> out.log &
+cd /data/www/idea
+./IntelliJIDEALicenseServer_linux_386
