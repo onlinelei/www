@@ -4,3 +4,12 @@ idea/.IntelliJIDEALicenseServer.html.swo
 idea/.IntelliJIDEALicenseServer.html.swp
 idea/out.log
 jar/
+
+# blog nessary files  _config.yml，theme/，source/，scaffolds/，package.json，.gitignore，是需要拷贝的。
+/blog/*
+!/blog/_config.yml
+!/blog/package.json
+!/bolg/scaffolds/*
+!/bolg/source/*
+!/bolg/themes/typography/*
+
