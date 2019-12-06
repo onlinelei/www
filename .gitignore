@@ -1,0 +1,6 @@
+# something not sync
+/static/
+idea/.IntelliJIDEALicenseServer.html.swo
+idea/.IntelliJIDEALicenseServer.html.swp
+idea/out.log
+jar/
