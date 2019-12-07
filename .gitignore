@@ -1,0 +1,18 @@
+# something not sync
+/static/
+idea/.IntelliJIDEALicenseServer.html.swo
+idea/.IntelliJIDEALicenseServer.html.swp
+idea/out.log
+jar/
+
+# blog nessary files  _config.yml，theme/，source/，scaffolds/，package.json，.gitignore，是需要拷贝的。
+/blog/nohup.out
+#!/blog/_config.yml
+#!/blog/package.json
+#!/bolg/scaffolds/*
+#!/bolg/scaffolds/**/*
+#!/bolg/source/*
+#!/bolg/source/**/*
+#!/bolg/themes/typography/*
+#!/bolg/themes/typography/**/*
+
