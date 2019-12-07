@@ -10,6 +10,9 @@ jar/
 !/blog/_config.yml
 !/blog/package.json
 !/bolg/scaffolds/*
+!/bolg/scaffolds/**/*
 !/bolg/source/*
+!/bolg/source/**/*
 !/bolg/themes/typography/*
+!/bolg/themes/typography/**/*
 
