@@ -9,6 +9,7 @@ tags: java
 <!--more-->
 **有个简单的方法实现日志的记录**
 
+```java
 	public class TestInterceptor implements HandlerInterceptor{
 		//Logger 对象可以写在任何类中，我这里写在拦截器里面了
 		static private final Logger  log = Logger.getLogger(TestInterceptor.class);
@@ -21,5 +22,5 @@ tags: java
 			return true;
 		}
 	}
- 
+ ```
 当然你要配置好你的log4j文件 然后去你的log文件里面找你输出的内容。

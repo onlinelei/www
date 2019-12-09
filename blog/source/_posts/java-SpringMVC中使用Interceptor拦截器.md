@@ -11,6 +11,7 @@ SpringMVC 中的Interceptor 拦截请求是通过HandlerInterceptor 来实现
 #### 一.创建拦截器类####
 ##### 1.实现HandlerInterceptor接口
 
+```java
 	package top.suroot.base.interceptor;
 	
 	import javax.servlet.http.HttpServletRequest;
@@ -57,9 +58,11 @@ SpringMVC 中的Interceptor 拦截请求是通过HandlerInterceptor 来实现
 		}
 	
 	}
+```
 
 ##### 2.实现WebRequestInterceptor 接口**
 
+```java
 	package top.suroot.base.interceptor;
 	
 	import org.apache.log4j.Logger;
@@ -95,9 +98,11 @@ SpringMVC 中的Interceptor 拦截请求是通过HandlerInterceptor 来实现
 		}
 	
 	}
+```
 
 #### 二.把定义的拦截器类加到SpringMVC的拦截体系中####
 
+```xml
 	<?xml version="1.0" encoding="UTF-8"?>
 	<beans xmlns="http://www.springframework.org/schema/beans"
 		xmlns:mvc="http://www.springframework.org/schema/mvc" 
@@ -122,6 +127,7 @@ SpringMVC 中的Interceptor 拦截请求是通过HandlerInterceptor 来实现
 	        </mvc:interceptor>
 	    </mvc:interceptors>
 	</beans>
+```
 
 由上面的示例可以看出可以利用mvc:interceptors标签声明一系列的拦截器，然后它们就可以形成一个拦截器链，拦截器的执行顺序是按声明的先后顺序执行的，先声明的拦截器中的preHandle方法会先执行，然而它的postHandle方法和afterCompletion方法却会后执行。
 在mvc:interceptors标签下声明interceptor主要有两种方式：

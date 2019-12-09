@@ -8,7 +8,7 @@ tags: redis
 
 pom.xml
 -------
-
+```xml
 	<dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-redis</artifactId>
@@ -30,9 +30,10 @@ pom.xml
       <artifactId>poi-ooxml</artifactId>
       <version>3.15</version>
     </dependency>
-
+```
 redis.properties
 ----------------
+```
 	 # Redis settings
 	redis.host=172.16.100.200
 	redis.port=9736
@@ -44,13 +45,13 @@ redis.properties
 	redis.maxTotal=600
 	redis.maxWaitMillis=1000
 	redis.testOnBorrow=true
-
+```
 
 spring_redis.xml
 ----------------
 
 
-
+```xml
 	<!-- scanner redis properties  -->
     <context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
 
@@ -92,10 +93,11 @@ spring_redis.xml
         <property name="redisTemplate" ref="commonRedisTemplate" />
         <property name="stringRedisTemplate" ref="stringRedisTemplate" />
     </bean>
-
+```
 RedisCacheUtils.java
 --------------------
 	
+```java
 	import com.alibaba.fastjson.JSON;
 	import com.alibaba.fastjson.JSONObject;
 	import org.apache.commons.lang3.StringUtils;
@@ -443,3 +445,4 @@ RedisCacheUtils.java
 			RedisCacheUtil.stringRedisTemplate = stringRedisTemplate;
 		}
 	}
+```

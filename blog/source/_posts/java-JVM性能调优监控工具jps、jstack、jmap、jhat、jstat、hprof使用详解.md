@@ -27,19 +27,22 @@ tags: java
 ###A、 jps(Java Virtual Machine Process Status Tool)
   jps主要用来输出JVM中运行的进程状态信息。语法格式如下：
 
+```
 	jps [options] [hostid]   
-
+```
 如果不指定hostid就默认为当前主机或服务器。
 
 命令行参数选项说明如下：
 
+```
 	-q 不输出类名、Jar名和传入main方法的参数
 	-m 输出传入main方法的参数
 	-l 输出main类或Jar的全限名
 	-v 输出传入JVM的参数
-
+```
 比如下面：
 
+```
 	root@ubuntu:/# jps -m -l
 	2458 org.artifactory.standalone.main.Main /usr/local/artifactory-2.2.5/etc/jetty.xml
 	29920 com.sun.tools.hat.Main -port 9998 /tmp/dump.dat
@@ -48,3 +51,4 @@ tags: java
 	8247 org.apache.catalina.startup.Bootstrap start
 	25687 com.sun.tools.hat.Main -port 9999 dump.dat
 	21711 mrf-center.jar
+```

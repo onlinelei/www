@@ -7,6 +7,7 @@ tags: java
 poi导出Excel添加/读取文件属性
 <!--more-->
 
+```java
  	/**
 	 * 
 	 * 
@@ -44,10 +45,11 @@ poi导出Excel添加/读取文件属性
 		// 将信息写入workbook
 		docmentIfo.setCustomProperties(customProperties);
 	}
-
+```
 
 java 获取属性  
 
+```java
 	/**
 	 *
 	 * 功能描述：获取上传报表属性中存入的属性
@@ -74,3 +76,4 @@ java 获取属性
 		}
 		return uuid;
 	}
+```
