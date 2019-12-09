@@ -1,7 +1,7 @@
 ---
 title: Linux常用命令
 date: 2017-3-31 15:18:39
-tags: Linux Redis
+tags: linux
 ---
 总结一些平时厂用的linux命令
 <!--more-->
