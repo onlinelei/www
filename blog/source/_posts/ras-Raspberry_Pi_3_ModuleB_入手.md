@@ -1,7 +1,7 @@
 ---
 title: Raspberry Pi 3 ModuleB 入手
 date: 2016-12-05 15:07:03
-tags: Raspberry Pi
+tags: raspberry pi
 ---
 >本人是在2016-11-17某宝上网购收到的Raspberry Pi 3 ModuleB板
 <!--more-->

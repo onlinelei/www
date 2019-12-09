@@ -1,7 +1,7 @@
 ---
 title: 多github帐号的SSH key切换
 date: 2016-11-02 16:32:32
-tags: Git
+tags: git
 ---
 
 >我有两个github帐号，一个是个人所用，一个是为公司项目所用。如果是单用户(single-user)，很方便，默认拿id_rsa与你的github服务器的公钥对比；如果是多用户（multi-user）如user1,user2,那么就不能用在user2的身上了，这个时候就要配置一下了：

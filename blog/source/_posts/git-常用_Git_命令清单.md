@@ -1,7 +1,7 @@
 ---
 title: 常用 Git 命令清单
 date: 2017-02-08 12:14:42
-tags: Git
+tags: git
 ---
 
 

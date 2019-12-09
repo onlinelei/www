@@ -1,7 +1,7 @@
 ---
 title: MYSQL外键的使用以及优缺点
 date: 2017-5-12 11:52:09
-tags: MYSQL
+tags: mysql
 ---
 
 

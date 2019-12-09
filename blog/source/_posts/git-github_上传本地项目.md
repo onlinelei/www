@@ -1,7 +1,7 @@
 ---
 title: github 上传本地项目
 date: 2017-02-06 14:42:03
-tags: Git
+tags: git
 ---
 
 ```
