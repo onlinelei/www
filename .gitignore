@@ -7,6 +7,7 @@ jar/
 
 # blog nessary files  _config.yml，theme/，source/，scaffolds/，package.json，.gitignore，是需要拷贝的。
 /blog/nohup.out
+blog/source/_posts/hello-world.md
 #!/blog/_config.yml
 #!/blog/package.json
 #!/bolg/scaffolds/*
