@@ -1,7 +1,7 @@
 ---
 title: Spring整合redis
 date: 2017-3-28 14:45:38
-tags: Java Redis
+tags: redis
 ---
 新换环境,又有新东西可以学习了,哈皮! 抽空学习之余看了一下redis,个人对Springmvc的爱是忠贞不渝,所以整理了一下Springmvc整合redis的环境搭建.分享学习.
 <!--more-->

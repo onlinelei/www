@@ -1,7 +1,7 @@
 ---
 title: JVM性能调优监控工具jps、jstack、jmap、jhat、jstat、hprof使用详解
 date: 2017-4-26 19:59:35
-tags: Java
+tags: java
 ---
 
 >JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat、hprof等小巧的工具，本博客希望能起抛砖引玉之用，让大家能开始对JVM性能调优的常用工具有所了解。  
