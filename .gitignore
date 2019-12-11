@@ -4,6 +4,7 @@ idea/.IntelliJIDEALicenseServer.html.swo
 idea/.IntelliJIDEALicenseServer.html.swp
 idea/out.log
 jar/
+.DS_Store
 
 # blog nessary files  _config.yml，theme/，source/，scaffolds/，package.json，.gitignore，是需要拷贝的。
 /blog/nohup.out
