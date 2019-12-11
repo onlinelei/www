@@ -15,7 +15,6 @@ git config --global http.proxy socks5://127.0.0.1:1086
 下面看下效果，
 
 ```shell
-
 # 配置代理前
 git clone https://github.com/spring2go/staffjoy.git
 Cloning into 'staffjoy'...
