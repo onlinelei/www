@@ -1,6 +1,6 @@
 ---
 title: xxlJob:API 方式新增调度器
-date: 2017-3-31 15:18:39
+date: 2020-02-12 16:20:57
 tags: xxlJob
 ---
 
