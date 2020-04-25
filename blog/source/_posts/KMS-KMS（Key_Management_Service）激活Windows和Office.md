@@ -1,7 +1,7 @@
 ---
 title: KMS（Key Management Service）激活Windows和Office
 date: 2017-11-19 19:20:54
-tags: KMS
+tags: kms
 ---
 
 

@@ -1,10 +1,10 @@
 ---
 title: github 上传本地项目
 date: 2017-02-06 14:42:03
-tags: Git
+tags: git
 ---
 
-
+```
 	//本地文件夹中新建本地仓库
 	git init
 	//新建文件
@@ -15,3 +15,5 @@ tags: Git
 	//git@github.com 可以用别名替代
 	git remote add origin git@github.com:onlinelei/test.git  
 	git push -u origin master
+```
+

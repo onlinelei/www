@@ -8,16 +8,18 @@ tags: java
 <!--more-->
 ##### 1.首先需要自定义注解类#####
 
-
+```java
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target({ElementType.TYPE,ElementType.METHOD})
 	public @interface DynamicDataSourceAnnotation {
 		//dataSource 自定义注解的参数
 		String dataSource() default DataSourceContextHolder.DATA_SOURCE_A;
 	}
+```
 
 ##### 2.自定义aop切面类#####
 
+```java
 	@Aspect
 	@Component
 	@Order(1) 
@@ -37,19 +39,22 @@ tags: java
 	
 	
 	}
+```
 
 ##### 3.在方法中使用注解#####
 
+```java
 	@RequestMapping("annotation")
 	@DynamicDataSourceAnnotation(dataSource = DataSourceContextHolder.DATA_SOURCE_B)
 	public String myAnnotation(HttpServletRequest request,HttpServletResponse response){
 		System.out.println("自定义注解");
 		return "hello";
 	}
-
+```
 ##### 4.在spring配置文件中配置好切入点的注解扫描#####
-
+```xml
 	<aop:config>
 		<aop:pointcut id="transactionPointcut" expression="execution(* top.suroot.*.service..*Impl.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" order="2"/>
 	</aop:config>
+```

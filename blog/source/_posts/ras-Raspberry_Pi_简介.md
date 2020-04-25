@@ -1,7 +1,7 @@
 ---
 title: Raspberry Pi 简介
 date: 2016-12-05 14:42:03
-tags: Raspberry Pi
+tags: raspberry pi
 ---
 ### Raspberry Pi 简介
 #### 发展史（百度百科）

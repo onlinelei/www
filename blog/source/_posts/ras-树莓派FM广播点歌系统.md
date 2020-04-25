@@ -1,7 +1,7 @@
 ---
 title: 树莓派FM广播点歌系统
 date: 2017-02-08 10:29:27
-tags: Raspberry Pi
+tags: raspberry pi
 ---
 
 ### 简介

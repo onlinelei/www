@@ -5,58 +5,65 @@ tags: java
 ---
 
 
-###最近项目使用到autocomplete的功能，使用中关于编码遇到了点问题，这里分享下   
+### 最近项目使用到autocomplete的功能，使用中关于编码遇到了点问题，这里分享下   
+
 >AutoComplete控件就是指用户在文本框输入前几个字母或是汉字的时候，该控件就能从存放数据的文本或是数据库里将所有以这些字母开头的数据提示给用户，供用户选择，提供方便。   
 <!--more-->
 
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2007394-61142480e6033351.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 html代码
 
+```html
 	姓名：<input type="text"  id="kid" name="kiName">
-
+```
 
 jquery 代码：
 
-	$(function(){
-			$("#kid").autocomplete(
-					"${pageContext.request.contextPath}/kids/selectKidAutoComplete.do",
-				{
-				minChars : 1, //最少的查询字符数
-				width: 200,     //提示的宽度，溢出隐藏
-				scrollHeight: 300,   //提示的高度，溢出显示滚动条
-				matchContains: true,    //包含匹配，就是data参数里的数据，是否只要包含文本框里的数据就显示
-				autoFill: false,    //自动填充
-				dataType:'json',
-				extraParams: {format: 'json' },
-				parse: function(data) {  
-		            return $.map(data, function(row) {  
-		                return {  
-		                    data: row,  
-		                    value: row.kiName,  
-		                    result: row.kiName 
-		                }  
-		            });  
-		        },  
-				formatItem: function(row, i, max) {
-					return   row.kiName ;
-				},
-				formatMatch: function(row, i, max) {
-					return row.kiName;
-				},
-				formatResult: function(row) {
-					return row.kiName;
-				}
-			})
-		});
+```js
+$(function(){
+	$("#kid").autocomplete(
+			"${pageContext.request.contextPath}/kids/selectKidAutoComplete.do",
+		{
+		minChars : 1, //最少的查询字符数
+		width: 200,     //提示的宽度，溢出隐藏
+		scrollHeight: 300,   //提示的高度，溢出显示滚动条
+		matchContains: true,    //包含匹配，就是data参数里的数据，是否只要包含文本框里的数据就显示
+		autoFill: false,    //自动填充
+		dataType:'json',
+		extraParams: {format: 'json' },
+		parse: function(data) {  
+            return $.map(data, function(row) {  
+                return {  
+                    data: row,  
+                    value: row.kiName,  
+                    result: row.kiName 
+                }  
+            });  
+        },  
+		formatItem: function(row, i, max) {
+			return   row.kiName ;
+		},
+		formatMatch: function(row, i, max) {
+			return row.kiName;
+		},
+		formatResult: function(row) {
+			return row.kiName;
+		}
+	})
+});
+```
 
-###使用中后代接受传值总是乱码，最后发现编码格式是iso8859-1 于是问题得到解决，希望能帮助到你们**
+### 使用中后代接受传值总是乱码，最后发现编码格式是iso8859-1 于是问题得到解决，希望能帮助到你们**
 
+```java
 	String str = new String(q.getBytes("iso8859-1"),"UTF-8");//q为插件默认的参数名，为前台传过来的值 
-	     
-###如果你对autocomplete.js 中的 q: lastWord(term),  做过url编码，后台用url解码也能解决乱码问题
+```
+
+### 如果你对autocomplete.js 中的 q: lastWord(term),  做过url编码，后台用url解码也能解决乱码问题
 
 后台传数据的话要指定编码否则显示的数据会是乱码
 
+```java
 	@RequestMapping("/selectKidAutoComplete")
 		public String selectKidAutoComplete(String q,HttpServletRequest request,HttpServletResponse response) {
 	        //注意这里q是默认的传值名称，不能用其他代替，不管你页面<input/>标签中id和name写的是什么，这里统一用q接收值
@@ -85,8 +92,8 @@ jquery 代码：
 			}
 			return null;
 		}
-
-最后找了一点资料
+```
+### 最后找了一点资料
 >* minChars (Number):    
     在触发autoComplete前用户至少需要输入的字符数.Default: 1，如果设为0，在输入框内双击或者删除输入框内内容时显示列表
 * width (Number):    

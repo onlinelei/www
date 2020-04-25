@@ -1,7 +1,7 @@
 ---
 title: kafka安装与启动（转）
 date: 2017-3-31 15:18:39
-tags: Linux Redis
+tags: linux
 ---
 
 kafka的背景知识已经讲了很多了，让我们现在开始实践吧，假设你现在没有Kafka和ZooKeeper环境。

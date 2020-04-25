@@ -12,6 +12,7 @@ tags: java
 ### 1.动态配置多数据源
 数据源的名称常量和一个获得和设置上下文环境的类，主要负责改变上下文数据源的名称
 
+```java
 	public class DataSourceContextHolder {
 	
 		public static final String DATA_SOURCE_A = "dataSourceA";
@@ -35,11 +36,12 @@ tags: java
 			contextHolder.remove();
 		}
 	}
-
+```
 
 ### 2.建立[动态数据](http://baike.baidu.com/view/8740809.htm)源类，
 注意，这个类必须继承AbstractRoutingDataSource，且实现方法determineCurrentLookupKey，该方法返回一个Object，一般是返回字符串：
 
+```java
 	public class DynamicDataSource extends AbstractRoutingDataSource {  
 	    @Override  
 	    protected Object determineCurrentLookupKey() {  
@@ -47,9 +49,11 @@ tags: java
 	        return DataSourceContextHolder.getDbType();  
 	    }  
 	}
-   
+ ```
+
 ***为了更好的理解为什么会切换数据源，我们来看一下`AbstractRoutingDataSource.java`源码,源码中确定数据源部分主要内容如下***
 
+```java
     /** 
      * Retrieve the current target DataSource. Determines the 
      * {@link #determineCurrentLookupKey() current lookup key}, performs 
@@ -70,12 +74,14 @@ tags: java
         }  
         return dataSource;  
     }
+```
 
 上面这段源码的重点在于`determineCurrentLookupKey()`方法，这是`AbstractRoutingDataSource`类中的一个抽象方法，而它的返回值是你所要用的数据源`dataSource`的key值，有了这个key值，`resolvedDataSource`（这是个map,由配置文件中设置好后存入的）就从中取出对应的`DataSource`，如果找不到，就用配置默认的数据源。
 看完源码，应该有点启发了吧，没错！你要扩展`AbstractRoutingDataSource`类，并重写其中的`determineCurrentLookupKey()`方法，来实现数据源的切换：  
 
 ### 3.编写spring的配置文件配置多个数据源
 
+```xml
 	<!-- 配置数据源  dataSourceA-->
 	<bean name="dataSourceA"  class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<property name="url" value="${jdbc_url}" />
@@ -176,28 +182,33 @@ tags: java
 	        </map>  
 	    </property>  
    </bean>  
- 
+ ```
+
 在这个配置中第一个property属性配置目标数据源，`<map key-type="java.lang.String">`中的`key-type`必须要和[静态](http://baike.baidu.com/view/612026.htm)键值对照类`DataSourceConst`中的值的类型相 同；`<entry key="User" value-ref="userDataSource"/>`中key的值必须要和静态键值对照类中的值相同，如果有多个值，可以配置多个`< entry>`标签。第二个`property`属性配置默认的数据源。  
 
 ### 4.动态切换是数据源 
 
+```java
 	DataSourceContextHolder.setDbType(DataSourceContextHolder.DATA_SOURCE_B);
+```
 
 -----
 以上讲的是怎么动态切换数据源，下面要说下自定义注解、aop方式自动切换数据源 ，感兴趣的可以继续往下看看 
 
 ### 5.配置自定义注解
 
+```java
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target({ElementType.TYPE,ElementType.METHOD})
 	public @interface DynamicDataSourceAnnotation {
 		//dataSource 自定义注解的参数
 		String dataSource() default DataSourceContextHolder.DATA_SOURCE_A;
 	}
- 
+ ```
 
 ### 6.配置切面类  
 
+```java
 	@Aspect
 	@Component
 	@Order(1) 
@@ -256,9 +267,11 @@ tags: java
 			}
 		}
 	}
-	 
+```
+
 ### 7.在切入点添加自定义的注解
 
+```java
 	@Service("baseService")
 	@DynamicDataSourceAnnotation
 	public class BaseServiceImpl implements BaseService {
@@ -268,12 +281,14 @@ tags: java
 			System.out.println("切换数据源serviceImple");
 		}
 	}
+```
 
 ### 8.当然注解扫描、和aop代理一定要在配置文件中配好
-
+```java
 	<!-- 自动扫描(bean注入) -->
 	<context:component-scan base-package="top.suroot.*" />
 	<!-- AOP自动代理功能 -->
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
+```
 
 大功告成，当调用`changeDataSource`方法的时候会进入切面类中切换数据源，方法调用完毕会把数据源切换回来。
