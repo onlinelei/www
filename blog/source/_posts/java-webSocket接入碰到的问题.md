@@ -4,12 +4,12 @@ date: 2020-4-28 15:40:46
 tags: java
 ---
 
-## webSocket session 无法序列化存储
+## 问题一：webSocket session 无法序列化存储
 项目中希望引入webSocket实现前后端实时通讯，为了解决分布式session的问题希望吧webSocket session存入reids，多端通过账户id去获取session。想法很美好，实现的时候发现session无法序列化，原因是session中有webSocket的长连接，序列化，会导致连接断开，而且即使序列化完成，别的服务从redis中取出session也是不能用的，应为长连接已经断开。
 
 解决方案：session 还是放在每台服务里（做线程安全），每台服务轮询去redis里取当前账户的消息，然后在发送消息。（也可使用mq、redis发布订阅模式）
 
-## webSocket无法注入Bean
+## 问题二：webSocket无法注入Bean
 事情时这样的，websocket服务端往往需要和服务层打交道，因此需要将服务层的一些bean注入到websocket实现类中使用，但是呢，websocket实现类虽然顶部加上了@Component注解，依然无法通过@Resource和@Autowire注入spring容器管理下的bean。后来就想用ApplicationContext获取spring容器管理下的bean。但是无法获取ApplicationContext的实例，因为该实例也是在spring下管理的，所以就又碰到前面的问题，当时都快崩溃了，这不是个死路吗，又回到原先的问题了。。后来在网上找到了该问题的解决办法，那就是在初始化ApplicationContext实例的时候将该引用保存到websocket类里。如下
 
 ``` java
@@ -57,3 +57,6 @@ public class SocketController {
 	}
 }
 ```
+
+## 问题三：webSocket断开重连
+测试中间隔性出现webSocket断开连接然后迅速的有三次创建连接，但是只有一次连接成功，其他的都是302，猜测302应该是重定向到统一登录中心，查了下SpringBoot的session默认时间是30分钟，于是果断将`server.session.timeout=36000`设置成了10小时，问题解决。
