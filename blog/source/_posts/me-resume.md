@@ -3,6 +3,7 @@ date: 2015-06-10 16:52:03
 tags: 生活
 
 # 联系方式
+
 - 手机：158 0103 0098（同微信号）
 - Email：suqianlei@gmail.com 
 
@@ -35,10 +36,10 @@ tags: 生活
 ## 公司：龙源美生医疗投资有限公司 （ 2015年5月 ~ 2016年9月 ）
 
 ### 项目：妈咪Baby App后台项目
-妈咪Baby App后台项目中，我主要负责了App所需功能点的接口梳理与开发。项目中我们使用了Token鉴权，且接口数据传输皆为加密处理。
+妈咪Baby App后台项目中，我主要负责了App所需功能点的接口梳理与开发。项目中我们使用了Token鉴权，且接口数据传输皆为加密处理，项目稳定交付。
 
 ### 项目：无线医疗Web项目
-无线医疗项目是，AOP方式实现动态切换数据源、日志记录、权限控制。jxl实现报表导出excel,quartz定时器， 亿美短信服务。jueryPrint在线打印。autocomplete输入框提示插件,条形码扫描实现疫苗入库。后期报表速度优化、表结构优化。
+无线医疗项目是为河北省各大医院做的一套办公系统，项目中以AOP方式实现动态切换数据源、日志记录、权限控制。使用jxl实现报表导出excel，以及quartz定时器处理job任务，后期接入亿美短信服务，使用jueryPrint在线打印医疗本等功能的开发，以及条形码扫描实现疫苗入库，等功能的开发。后期报表的开发以及报表查询速度优化、表结构优化。
 
 ---
 
@@ -50,17 +51,15 @@ tags: 生活
 - 框架：Spirng / MyBatis / Hibernate
 - 数据库相关：MySQL / Oracle / Redis / Mycat
 - 开发平台和工具：Windows / macOs / linux / IntelliJ IDEA / Eclipse
-- 技能点：Git / GitLab / Gerrit / Svn / Maven / xxlJob / Kafka / RocketMQ / jvm / nginx / docker /
-
-
+- 技能点：Git / GitLab / Gerrit / Svn / Maven / xxlJob / Kafka / RocketMQ / jvm / nginx / docker 
 
 # 开源项目和作品
 
 
 ## 技术文章
 - [xxlJob:API 方式新增调度器](http://blog.suroot.win/2020/02/12/xxlJob-xxlJobAPI%E6%96%B0%E5%A2%9E%E8%B0%83%E5%BA%A6%E5%99%A8/)
-- [来自HeroKu的HTTP API 设计指南(翻译文章)](http://get.jobdeer.com/343.get) 
-
+- [java即时编译分享](http://suroot.win/2020/04/29/java-JIT%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E5%88%86%E4%BA%AB/) 
+- [webSocket接入问题总结](http://suroot.win/2020/04/28/java-webSocket%E6%8E%A5%E5%85%A5%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/)
 ## 开源项目
 
  - [doPi](http://github.com/yourname/projectname)：运行在树莓派上的java项目控制GPIO端口从而控制家电
