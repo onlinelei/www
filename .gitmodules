@@ -1,0 +1,3 @@
+[submodule "blog"]
+	path = blog
+	url = git@gitee.com:suqianlei/suqianlei.git
